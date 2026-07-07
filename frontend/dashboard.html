@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow — Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body page-fade-in">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item active">
+        <span class="nav-icon">&#128640;</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="tasks.html" class="nav-item">
+        <span class="nav-icon">&#128203;</span>
+        <span class="nav-label">All Tasks</span>
+      </a>
+      <a href="employees.html" class="nav-item">
+        <span class="nav-icon">&#128101;</span>
+        <span class="nav-label">Employees</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar" id="sidebarAvatar">A</div>
+        <div>
+          <div class="user-name" id="sidebarName">Admin</div>
+          <div class="user-role" id="sidebarRole">admin</div>
+        </div>
+      </div>
+      <button class="logout-btn" id="logoutBtn">LOGOUT</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div class="page-title">MISSION DASHBOARD</div>
+      <div class="page-subtitle">Overview of all active operations</div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-card total">
+        <span class="summary-icon">&#128194;</span>
+        <span class="summary-number" id="totalCount">0</span>
+        <span class="summary-label">Total Tasks</span>
+      </div>
+      <div class="summary-card completed">
+        <span class="summary-icon">&#9989;</span>
+        <span class="summary-number" id="completedCount">0</span>
+        <span class="summary-label">Completed</span>
+      </div>
+      <div class="summary-card pending">
+        <span class="summary-icon">&#9203;</span>
+        <span class="summary-number" id="pendingCount">0</span>
+        <span class="summary-label">Pending</span>
+      </div>
+    </div>
+
+    <div class="section-card" id="taskFormSection">
+      <div class="section-title">Assign New Task</div>
+      <form class="task-form" id="taskForm">
+        <div class="form-row" style="margin-bottom:16px">
+          <div class="form-group">
+            <label>Task Title</label>
+            <input type="text" id="fTitle" placeholder="e.g. Fix authentication bug" required>
+          </div>
+          <div class="form-group">
+            <label>Assign To</label>
+            <select id="fEmployee" required>
+              <option value="">-- Select Employee --</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label>Description</label>
+          <textarea id="fDesc" placeholder="Describe the task in detail..."></textarea>
+        </div>
+        <div class="form-row" style="margin-bottom:20px">
+          <div class="form-group">
+            <label>Priority</label>
+            <select id="fPriority">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Due Date</label>
+            <input type="date" id="fDueDate">
+          </div>
+          <div class="form-group">
+            <label>Completed?</label>
+            <select id="fCompleted">
+              <option value="false" selected>False</option>
+              <option value="true">True</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">
+          <span>LAUNCH TASK</span>
+        </button>
+        <p id="taskMsg" class="msg success hidden"></p>
+      </form>
+    </div>
+
+    <div class="section-card">
+      <div class="task-list-header">
+        <div class="section-title" style="margin-bottom:0">Recent Tasks</div>
+        <div class="filter-group">
+          <button class="filter-chip active" data-filter="">All</button>
+          <button class="filter-chip" data-filter="false">Pending</button>
+          <button class="filter-chip" data-filter="true">Done</button>
+        </div>
+      </div>
+      <div class="task-list" id="taskList">
+        <div class="empty-state"><span class="empty-icon">&#128225;</span>Loading tasks...</div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast"></div>
+<script src="js/utils.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow — Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="login-card">
+    <div class="brand-logo">
+      <div class="brand-icon">⚡</div>
+      
+    </div>
+
+    <p class="login-heading" id="typingText"><span class="cursor-blink"></span></p>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username" required autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn-primary" id="loginBtn">
+        <span>INITIATE LOGIN</span>
+      </button>
+      <p id="loginError" class="msg error hidden"></p>
+    </form>
+
+    <div class="hint-box">
+      <strong>Demo Credentials</strong>
+      Admin &nbsp;-> admin / admin123<br>
+      Employee -> jsmith / employee123
+    </div>
+  </div>
+
+<script src="js/particles.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>
